@@ -20,6 +20,11 @@ library(tidyverse)
 #1) Using the spread() function, please create a data frame that shows the total number of home runs (HR) for each birthYear for
   #each team (use the teamID column) aggregated by player
 
+d1 = spread(d, birthYear, HR, 0)
+ncol(d1)
+HR = subset(d1, select = c(teamID, 31:56))
+HR = HR %>% group_by(teamID) %>% summarise_all(.funs = sum)
+HR
 
 #2) Subset the data for the Houston Astros (HOU). Using the gather() function, create a new data frame that has 3 columns:
   # (1) playerID, (2) variable containing (AB, R, H, 2B, 3B) and (3) column with the corresponding values for the stats.
@@ -75,6 +80,7 @@ if(999e999 == Inf) {print("To be")
 
 #two or more conditions
 #8) create an 'if else' statement that returns (in order of preference) your four ideal pizza toppings
+
 toppings = "best"
 if (toppings == "best") {print("Bacon, pepperoni, banana peppers, sausage")
   } else {print("sad")}
@@ -91,6 +97,12 @@ if (toppings == "best") {print("Bacon, pepperoni, banana peppers, sausage")
   }
 
 #9) generate your own 'if' statement using multiple conditions in one line
+  
+  a = 1
+  b = 7
+  c = 9
+  
+  if (a < c && b < c) {print("A and B are less than C")}
 
 
 
@@ -103,4 +115,6 @@ if (toppings == "best") {print("Bacon, pepperoni, banana peppers, sausage")
   } else {
     print("even")
   }
+  
+  #The warning is saying "v" has a length of more than one, since it contains numbers 1 to 6. It will only use the first value in "v" (1) when the if-else statement is run.
 
