@@ -47,8 +47,8 @@ head(houinfo2)
 
 #4) Using the dcast() function from the 'reshape2 package', find the mean number of AB, R, H, 2B, 3B for each player (use 'playerID' to aggregate).
 
-
-
+meanstats = dcast(data = d, formula = playerID~c("AB", "R", "H", "2B", "3B"), fun.aggregate = mean, fill = 0)
+head(meanstats)
 #Part 3: if_else statements -------------------------------
 
 # one condition
